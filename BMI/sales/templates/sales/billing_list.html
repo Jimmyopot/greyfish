@@ -1,0 +1,38 @@
+{% extends 'sales/base.html' %}
+
+{% block content %}
+
+    <h2>A List of Products in the Shop</h2><br>
+
+    <p>Items:</p>
+       
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product</a></th>
+                    <th>Buying Price</a></th>
+                    <th>Quantity</a></th>
+                    <th>VAT</a></th>
+                    <th>Time</a></th>
+                    <th>Total</a></th>
+                </tr>
+            </thead>
+            {% for object in my_object %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a>{{ object.product }}</a></td>
+                    <td>{{ object.buying_price }}</td>
+                    <td>{{ object.quantity }}</td>
+                    <td>{{ object.value_added_tax }}</td>
+                    <td>{{ object.sold_at }}</td>
+                    <td>{{ object.total }}</td>
+                    
+                </tr>
+            {% endfor %}
+        </table>
+
+    <p>Upload new products: 
+    <a href="{% url 'sales:billing-create' %}"><button type="submit">Create</button></a><br>
+
+{% endblock %}

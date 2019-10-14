@@ -1,0 +1,30 @@
+{% extends 'sales/base.html' %}
+
+{% block content %}
+    <p>make your order:</p><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th><a href="#">Name</a></th>
+                <th><a href="#">Item</a></th>
+                <th><a href="#">Price</a></th>
+            </tr>
+        </thead>
+        {% for order in orders %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a>{{ order.name }}</a></td>
+                <td>{{ order.item }}</td>
+                <td>{{ order.price }}</td>
+                
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p>Upload new orders: 
+        <a href="{% url 'sales:order-create' %}"><button type="submit">Create</button></a>
+    </p><br>
+
+{% endblock %}

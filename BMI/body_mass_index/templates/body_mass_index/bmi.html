@@ -1,0 +1,29 @@
+{% extends 'body_mass_index/base.html' %}
+
+{% block content %}
+    
+    <h2>Your BMI your health</h2><br>
+
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Calculate BMI'/>
+    </form> 
+
+    {% if bmi < 16 %}<br>
+    Your BMI is {{bmi}}, "Severely underweight"
+
+    {% elif bmi >= 16 and bmi < 18.5 %}<br>
+    Your BMI is {{bmi}}, "Underweight"
+
+    {% elif bmi >= 18.5 and bmi < 25 %}<br>
+    Your BMI is {{bmi}}, "Healthy"
+
+    {% elif bmi >= 25 and bmi < 30 %}<br>
+    Your BMI is {{bmi}}, "Overweight"
+
+    {% elif bmi >= 30 %}
+    Your BMI is {{bmi}}, "Severely overweight"
+
+    {% endif %}
+
+{% endblock %}

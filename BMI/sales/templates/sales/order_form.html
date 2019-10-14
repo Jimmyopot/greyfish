@@ -1,0 +1,9 @@
+{% extends 'sales/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form method='POST' action = ".">{% csrf_token %}
+        {{ form|crispy }}<br>
+        <button class="btn btn-outline-info" type="submit">Update</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'sales/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h3>Hi</h3><br>
+    <form method='POST' action = ".">{% csrf_token %}
+        {{ form|crispy }}
+        <!--{{ my_total }}-->
+        <br><button type="submit">Enter</button><br><br>
+        <button class="btn btn-outline-info" type="submit">Update</button>
+        <!--<a href="{% url 'sales:billings' %}"><button type="button">Post</button></a>-->
+    </form>
+{% endblock %}

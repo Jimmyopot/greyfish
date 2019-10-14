@@ -1,0 +1,10 @@
+{% extends 'sales/base.html' %}
+
+
+{% block content %}
+    <form method='POST' action = ".">{% csrf_token %}
+        <h2>Are you sure you want to delete '{{ object.product }}'?</h2>
+        <button class="btn btn-outline-danger" type="submit">Delete</button>
+        <a class="btn btn-outline-secondary" type="submit" href="{% url 'sales:billing-detail' object.id %}">Cancel</a>
+    </form>
+{% endblock %}

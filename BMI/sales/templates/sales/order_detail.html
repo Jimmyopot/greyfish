@@ -1,0 +1,34 @@
+{% extends 'sales/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <p>make your order:</p><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th><a href="#">Name</a></th>
+                <th><a href="#">Item</a></th>
+                <th><a href="#">Price</a></th>
+            </tr>
+        </thead>
+        
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a>{{ order.name }}</a></td>
+                <td>{{ order.item }}</td>
+                <td>{{ order.price }}</td>
+                
+            </tr>
+        
+    </table>
+    
+    <form method='POST' action = ".">{% csrf_token %}
+        {{ form|crispy }}<br>
+        <h2>Are you sure you want to delete '{{ order.name }}'?</h2>
+        <button class="btn btn-outline-danger" type="submit">Delete</button>
+        <a class="btn btn-outline-secondary" href="{% url 'sales:order-detail' object.id %}">Cancel</a>
+    </form>
+
+{% endblock %}
