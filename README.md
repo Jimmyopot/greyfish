@@ -1,1 +1,2 @@
-This is a BMI project that calculates sales
+# BMI Python Project
+This is my first rudimentary Django project. Calculate your BMI and sales
